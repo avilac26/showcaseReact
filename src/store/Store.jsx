@@ -42,4 +42,7 @@ function Store( {children} ){
     )
 }
 
-export default Store;
+export function useAppContext(){
+    return useContext(AppContext)
+
+}
