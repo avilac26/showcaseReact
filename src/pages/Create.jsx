@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useAppContext } from "../store/Store";
 
+import { Link } from "react-router-dom";
+
 function Create(){
 
     const[title, SetTitle]=useState("");
@@ -66,6 +68,7 @@ function Create(){
     
     return(
         <div>
+            <Link to="/">Home</Link>
             <form onSubmit={handleSubmit}>
                 <div>
                     <h2>Title</h2>
@@ -108,8 +111,8 @@ function Create(){
                     <input 
                         type="checkbox" 
                         name="completed" 
+                        checked={completed}
                         onChange={handleChange} 
-                        value={completed} 
                     />
                 </div>
                 <div>

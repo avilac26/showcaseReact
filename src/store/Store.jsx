@@ -28,6 +28,7 @@ function Store( {children} ){
         const index = items.findIndex((i)=>i.id == item.id);
         const temp = [...items];
         temp[index]={...item};
+        setItems(temp);
     }
 
     return (
@@ -41,6 +42,8 @@ function Store( {children} ){
         </AppContext.Provider>
     )
 }
+
+export default Store;
 
 export function useAppContext(){
     return useContext(AppContext)
