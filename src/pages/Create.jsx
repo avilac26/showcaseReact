@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAppContext } from "../store/Store";
 
 import Layout from "../components/Layout";
+import { useNavigate } from "react-router-dom";
 
 function Create(){
 
@@ -13,6 +14,7 @@ function Create(){
     const[review, SetReview]=useState("");
 
     const store = useAppContext();
+    const navigate = useNavigate();
 
     function handleChange(e){
         const name = e.target.name;
@@ -64,6 +66,7 @@ function Create(){
 
         //TODO: mandar a registrar
         store.createItem(newBook);
+        navigate("/");
     }
     
     return(

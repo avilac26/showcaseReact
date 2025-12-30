@@ -6,10 +6,11 @@ function Index(){
     const store = useAppContext();
     return(
         <Layout>
-            {store.items.map((item) =>(
-                <Book key={item.id} item={item}/>
-            ))}
-            
+            <div>
+                {store.items.map((item) =>(
+                    <Book key={item.id} item={item}/>
+                ))}
+            </div>
         </Layout>
     )
 }
