@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from "../store/Store";
 
-import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
 
 function Create(){
 
@@ -67,8 +67,7 @@ function Create(){
     }
     
     return(
-        <div>
-            <Link to="/">Home</Link>
+        <Layout>
             <form onSubmit={handleSubmit}>
                 <div>
                     <h2>Title</h2>
@@ -126,7 +125,7 @@ function Create(){
                 </div>
                 <input type="submit" value={"Register books"} />
             </form>
-        </div>
+        </Layout>
     )
 }
 

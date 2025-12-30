@@ -1,6 +1,10 @@
+import Layout from "../components/Layout";
+
 function View(){
     return(
-        <h1>View</h1>
+        <Layout>
+            <p>View</p>
+        </Layout>
     )
 }
 
