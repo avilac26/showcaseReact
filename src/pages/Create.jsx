@@ -103,6 +103,13 @@ function Create(){
     function handleSubmit(e){
         e.preventDefault();
 
+        const confirmed = window.confirm(
+            "Are you sure you have filled in all sections correctly?\n" +
+            "You won’t be able to edit the book information later, only delete it."
+        );
+
+        if (!confirmed) return;
+
         const newBook = {
             id: crypto.randomUUID(),
             title,
