@@ -8,7 +8,6 @@ import View from './pages/View';
 import Store from './store/Store';
 
 
-
 function App() {
   const [count, setCount] = useState(0)
 

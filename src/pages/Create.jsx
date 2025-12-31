@@ -6,6 +6,55 @@ import { useNavigate } from "react-router-dom";
 
 function Create(){
 
+    const inputStyles={
+        formContainer: {
+            width: "400px",
+            margin: "0 auto",
+        },
+        container: {
+            display: "flex",
+            flexDirection: "column",
+            gap: "5px",
+            margin: "15px 0",
+        },
+        title: {
+            fontSize: "16px",
+            textAlign: "left",
+            color: "white",
+            fontFamily: "tahoma",
+        },
+        input: {
+            padding: "10px",
+            borderRadius: "5px",
+            fontSize: "16px",
+            fontFamily: "tahoma",
+            color: "black",
+        },
+        largeInput: {
+            padding: "10px",
+            borderRadius: "5px",
+            fontSize: "16px",
+            fontFamily: "tahoma",
+            color: "black",
+            height: "120px",
+            width: "100%",
+            resize: "vertical",
+        }
+    };
+
+    const buttonStyle = {
+        padding: "15px 20px",
+        marginTop: "20px",
+        minWidth: "200px",
+        border: "none",
+        borderRadius: "5px",
+        backgroundColor: "#1e9638",
+        color: "white",
+        fotWeight: "bolder",
+        fontSize: "18px",
+        fontFamily: "tahoma"
+    };
+
     const[title, SetTitle]=useState("");
     const[author, SetAuthor]=useState("");
     const[cover, SetCover]=useState("");
@@ -71,45 +120,49 @@ function Create(){
     
     return(
         <Layout>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <h2>Title</h2>
+            <form onSubmit={handleSubmit} style={inputStyles.formContainer}>
+                <div style={inputStyles.container}>
+                    <h2 style={inputStyles.title}>Title</h2>
                     <input 
                         type="text" 
                         name="title" 
                         onChange={handleChange} 
                         value={title} 
+                        style={inputStyles.input}
                     />
                 </div>
-                <div>
-                    <h2>Author</h2>
+                <div style={inputStyles.container}>
+                    <h2 style={inputStyles.title}>Author</h2>
                     <input 
                         type="text" 
                         name="author" 
                         onChange={handleChange} 
                         value={author} 
+                        style={inputStyles.input}
                     />
                 </div>
-                <div>
-                    <h2>Cover</h2>
+                <div style={inputStyles.container}>
+                    <h2 style={inputStyles.title}>Cover</h2>
                     <input 
                         type="file" 
                         name="cover" 
                         onChange={ handleOnChangeFile }
+                        style={inputStyles.input}
                     />
                     <div> {!!cover? <img src={cover} width="200" alt="preview" /> : "" } </div>
                 </div>
-                <div>
-                    <h2>Introduction</h2>
-                    <input 
+                <div style={inputStyles.container}>
+                    <h2 style={inputStyles.title}>Introduction</h2>
+                    <textarea  
                         type="text" 
                         name="intro" 
                         onChange={handleChange} 
                         value={intro} 
+                        style={inputStyles.largeInput}
                     />
                 </div>
                 <div>
-                    <h2>Completed</h2>
+                    <h2 style={inputStyles.title}>Completed</h2>
                     <input 
                         type="checkbox" 
                         name="completed" 
@@ -118,15 +171,16 @@ function Create(){
                     />
                 </div>
                 <div>
-                    <h2>Review</h2>
-                    <input 
+                    <h2 style={inputStyles.title}>Review</h2>
+                    <textarea 
                         type="text" 
                         name="review" 
                         onChange={handleChange} 
                         value={review} 
+                        style={inputStyles.largeInput}
                     />
                 </div>
-                <input type="submit" value={"Register books"} />
+                <input type="submit" value={"Register book"} style={buttonStyle}/>
             </form>
         </Layout>
     )
