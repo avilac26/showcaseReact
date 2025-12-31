@@ -5,6 +5,7 @@ const AppContext = createContext({
     createItem: (item) => {},
     getItem: (id) => {},
     updateItem: (item) => {},
+    deleteItem: (id) => {},
 });
 
 
@@ -31,12 +32,18 @@ function Store( {children} ){
         setItems(temp);
     }
 
+    function deleteItem(id){
+        const temp = items.filter((item) => item.id !== id);
+        setItems(temp);
+    }
+
     return (
         <AppContext.Provider value={{
             items,
             createItem,
             getItem,
             updateItem,
+            deleteItem,
         }}>
             {children}
         </AppContext.Provider>
